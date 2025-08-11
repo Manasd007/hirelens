@@ -1,4 +1,3 @@
-# hirelens/services/parser.py
 import os, re
 from typing import List, Dict, Iterable
 from pypdf import PdfReader
@@ -11,12 +10,11 @@ def _read_pdf(path: str) -> str:
         reader = PdfReader(path)
         chunks = []
         for page in reader.pages:
-            # pypdf returns text or None
             txt = page.extract_text() or ""
             chunks.append(txt)
         return "\n".join(chunks)
     except Exception:
-        return ""  # if encrypted or broken, return empty
+        return ""  
 
 def _read_docx(path: str) -> str:
     try:
