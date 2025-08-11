@@ -1,4 +1,3 @@
-# hirelens/services/shortlist.py
 from typing import List
 from hirelens.models.schema import CandidateScore
 from hirelens.services.scorer import extract_skills
