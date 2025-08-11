@@ -1,4 +1,4 @@
-# hirelens/api/main.py
+
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse, RedirectResponse
 from typing import List
@@ -91,7 +91,7 @@ def feedback_update(batch: FeedbackBatch):
     new_w = update_weights(fb, current)
     return JSONResponse({"old": current, "new": new_w})
 
-# keep this to avoid 404 at root
+
 @app.get("/")
 def root():
     return RedirectResponse(url="/docs")
