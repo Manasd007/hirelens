@@ -1,0 +1,46 @@
+Job Title: Backend Engineer – AI Resume Screening Platform
+
+Role Overview:
+We are seeking a skilled Backend Engineer to develop and maintain backend services for an AI-powered recruitment platform. The candidate will be responsible for building and optimizing APIs, integrating external services like Google Calendar, and ensuring fast, secure, and reliable processing of large amounts of resume and job description data.
+
+Responsibilities:
+
+Design, implement, and maintain backend services using FastAPI.
+
+Integrate APIs for semantic search, resume parsing, and scoring.
+
+Manage database operations, including resume metadata storage.
+
+Implement secure authentication and authorization workflows.
+
+Optimize backend performance for low latency and high throughput.
+
+Collaborate with frontend engineers to ensure seamless UI–backend integration.
+
+Integrate and manage Google Calendar API for interview scheduling.
+
+Required Skills:
+
+Proficiency in Python and FastAPI.
+
+Experience with REST APIs and JSON-based data exchange.
+
+Familiarity with PyMuPDF, FAISS, or vector search technologies.
+
+Knowledge of OAuth 2.0 authentication flows.
+
+Understanding of Docker-based deployments.
+
+Nice to Have:
+
+Experience with NLP libraries like spaCy or Hugging Face Transformers.
+
+Knowledge of asynchronous programming in Python.
+
+CI/CD pipeline setup experience.
+
+Qualifications:
+
+Bachelor’s degree in Computer Science or related field.
+
+1–3 years of backend development experience (projects/internships count).

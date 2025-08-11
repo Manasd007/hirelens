@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+data/resumes/*
+!data/resumes/.gitkeep
+data/jd/*
+!data/jd/.gitkeep
+data/outputs/*
+!data/outputs/.gitkeep
+google_oauth_credentials.json
+.google_token.json
+token.json
+credentials.json
+.vscode/
+.DS_Store
