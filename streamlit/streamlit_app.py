@@ -1,8 +1,3 @@
-# streamlit_app.py
-# -----------------------------------------------------------
-# HireLens — semantic scoring UI (FastAPI backend required)
-# -----------------------------------------------------------
-
 import os
 import json
 import time
@@ -15,7 +10,6 @@ import pandas as pd
 import streamlit as st
 from streamlit_lottie import st_lottie
 
-# -------------------- CONFIG --------------------
 API_DEFAULT = "http://127.0.0.1:8000"
 DATA_DIR = Path("data")
 RESUME_DIR = DATA_DIR / "resumes"
@@ -30,7 +24,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# -------------------- STYLE --------------------
 CSS = """
 <style>
 :root {
@@ -85,7 +78,6 @@ footer { visibility: hidden; }
 """
 st.markdown(CSS, unsafe_allow_html=True)
 
-# -------------------- SIDEBAR --------------------
 st.sidebar.title("⚙️ Settings")
 api_base = st.sidebar.text_input("FastAPI server", value=API_DEFAULT, help="Your HireLens API base URL")
 st.sidebar.caption(f"📁 Resume folder: {RESUME_DIR.resolve()}")
@@ -96,7 +88,6 @@ if clear:
         except: pass
     st.sidebar.success("Cleared resumes folder.")
 
-# -------------------- ANIMATIONS --------------------
 @st.cache_data(show_spinner=False)
 def load_lottie(url: str) -> Optional[Dict[str, Any]]:
     try:
@@ -112,7 +103,6 @@ LOTTIE_OK = load_lottie("https://assets3.lottiefiles.com/packages/lf20_s1hjbpsc.
 LOTTIE_SCAN = load_lottie("https://assets3.lottiefiles.com/packages/lf20_9wpyhdzo.json")         # scan
 LOTTIE_THINK = load_lottie("https://assets6.lottiefiles.com/packages/lf20_kyu7xb1v.json")        # brain swirl
 
-# -------------------- HERO --------------------
 c1, c2 = st.columns([0.64, 0.36], vertical_alignment="center")
 with c1:
     st.markdown(
@@ -138,12 +128,9 @@ with c2:
 
 st.write("")
 
-# -------------------- TABS --------------------
 tab1, tab2, tab3 = st.tabs(["🏗️ Score & Shortlist", "📝 Feedback", "📅 Scheduling"])
 
-# ===========================================================
-# TAB 1 — SCORE & SHORTLIST
-# ===========================================================
+
 with tab1:
     left, right = st.columns([0.58, 0.42])
 
@@ -215,12 +202,10 @@ with tab1:
                     st.warning(f"Could not call /shortlist: {e}. Showing the top {top_n} locally.")
                     top = sorted(scores, key=lambda x: x["score"], reverse=True)[:top_n]
 
-                # Show ALL
                 st.markdown("##### All candidates")
                 df = pd.DataFrame(scores)
                 st.dataframe(df[["name", "score", "reasoning"]], hide_index=True, use_container_width=True)
 
-                # Show SHORTLIST as cards
                 st.markdown("##### Shortlist")
                 for c in top:
                     with st.container(border=True):
@@ -241,9 +226,6 @@ with tab1:
             else:
                 st.warning("No scores returned. Ensure resumes exist in data/resumes and the JD is not empty.")
 
-# ===========================================================
-# TAB 2 — FEEDBACK (LEARNING)
-# ===========================================================
 with tab2:
     st.subheader("Lightweight Learning — nudge weights with feedback")
     st.caption("Mark candidates as good/poor fit. Weights update slightly; re-run scoring to see changes.")
@@ -270,9 +252,6 @@ with tab2:
             except Exception as e:
                 st.error(f"Error calling /feedback/update-weights: {e}")
 
-# ===========================================================
-# TAB 3 — SCHEDULING
-# ===========================================================
 with tab3:
     st.subheader("Create a Google Meet invite")
     st.caption("Requires Google Calendar OAuth set on the backend. First call will ask for consent in a browser window.")
