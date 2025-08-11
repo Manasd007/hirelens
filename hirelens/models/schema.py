@@ -1,4 +1,3 @@
-# hirelens/models/schema.py
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from typing import List, Optional
@@ -30,7 +29,7 @@ class ScoreBreakdown(BaseModel):
 class CandidateScore(BaseModel):
     resume_id: str
     name: str
-    score: float  # 0–100
+    score: float  
     breakdown: ScoreBreakdown
     reasoning: str
 
@@ -45,8 +44,8 @@ class ScheduleRequest(BaseModel):
     interviewer_email: str
     candidate_email: str
     duration_minutes: int = 30
-    window_start_iso: str  # e.g. "2025-08-11T11:00:00"
-    window_end_iso: str    # e.g. "2025-08-11T11:30:00"
+    window_start_iso: str 
+    window_end_iso: str   
     title: str
     description: Optional[str] = None
     timezone: str = "Asia/Kolkata"
@@ -54,7 +53,7 @@ class ScheduleRequest(BaseModel):
 
 class FeedbackItem(BaseModel):
     resume_id: str
-    label: str  # "good_fit" | "poor_fit"
+    label: str 
     notes: Optional[str] = None
 
 
