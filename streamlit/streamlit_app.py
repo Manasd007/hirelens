@@ -9,8 +9,8 @@ import requests
 import pandas as pd
 import streamlit as st
 from streamlit_lottie import st_lottie
-
-API_DEFAULT = "http://127.0.0.1:8000"
+import os, streamlit as st
+API_DEFAULT = st.secrets.get("API_BASE", "http://127.0.0.1:8000")
 DATA_DIR = Path("data")
 RESUME_DIR = DATA_DIR / "resumes"
 JD_FILE = DATA_DIR / "jd" / "jd.txt"
