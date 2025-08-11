@@ -1,4 +1,3 @@
-# hirelens/services/scorer.py
 import re
 import numpy as np
 from typing import Dict, List, Tuple
